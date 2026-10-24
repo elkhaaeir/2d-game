@@ -1,0 +1,132 @@
+[gd_scene format=3 uid="uid://bqppntr47vxfr"]
+
+[ext_resource type="Script" uid="uid://cnxtss7pghwao" path="res://Assets/Script/player_controller.gd" id="1_th6hb"]
+[ext_resource type="Texture2D" uid="uid://cklnipcqeetcp" path="res://Assets/Sprites/player.png" id="1_uxtyp"]
+[ext_resource type="Script" uid="uid://bhnmyyit68a0b" path="res://Assets/Script/player_animator.gd" id="2_l0e6a"]
+
+[sub_resource type="Animation" id="Animation_th6hb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../PlayerAnimator/Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(0, 0, 16, 16)]
+}
+
+[sub_resource type="Animation" id="Animation_sxlvn"]
+resource_name = "fall"
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../PlayerAnimator/Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(0, 48, 16, 16)]
+}
+
+[sub_resource type="Animation" id="Animation_l0e6a"]
+resource_name = "idle"
+length = 2.0
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../PlayerAnimator/Sprite2D:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Rect2(0, 0, 16, 16), Rect2(16, 0, 16, 16), Rect2(32, 0, 16, 16), Rect2(48, 0, 16, 16), Rect2(64, 0, 16, 16), Rect2(80, 0, 16, 16), Rect2(96, 0, 16, 16), Rect2(96, 0, 16, 16)]
+}
+
+[sub_resource type="Animation" id="Animation_xldes"]
+resource_name = "jump"
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../PlayerAnimator/Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(0, 32, 16, 16)]
+}
+
+[sub_resource type="Animation" id="Animation_8bexy"]
+resource_name = "move"
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../PlayerAnimator/Sprite2D:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Rect2(0, 16, 16, 16), Rect2(16, 16, 16, 16), Rect2(32, 16, 16, 16), Rect2(48, 16, 16, 16), Rect2(0, 16, 16, 16)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sxlvn"]
+_data = {
+&"RESET": SubResource("Animation_th6hb"),
+&"fall": SubResource("Animation_sxlvn"),
+&"idle": SubResource("Animation_l0e6a"),
+&"jump": SubResource("Animation_xldes"),
+&"move": SubResource("Animation_8bexy")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xrivr"]
+radius = 5.0
+height = 16.0
+
+[node name="Player" type="CharacterBody2D" unique_id=1463935306]
+script = ExtResource("1_th6hb")
+speed = 3.0
+jump_power = 7.0
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1522384562]
+offset = Vector2(0, -15)
+zoom = Vector2(6, 6)
+
+[node name="PlayerAnimator" type="Node2D" parent="." unique_id=2020841134 node_paths=PackedStringArray("player_controller", "animation_player", "sprite")]
+script = ExtResource("2_l0e6a")
+player_controller = NodePath("..")
+animation_player = NodePath("AnimationPlayer")
+sprite = NodePath("Sprite2D")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PlayerAnimator" unique_id=743565199]
+root_node = NodePath("../../Camera2D")
+libraries/ = SubResource("AnimationLibrary_sxlvn")
+autoplay = &"idle"
+speed_scale = 1.5
+
+[node name="Sprite2D" type="Sprite2D" parent="PlayerAnimator" unique_id=771734237]
+position = Vector2(0, -8)
+texture = ExtResource("1_uxtyp")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1624017933]
+visible = false
+position = Vector2(0, -8)
+shape = SubResource("CapsuleShape2D_xrivr")
