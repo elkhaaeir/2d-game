@@ -1,0 +1,404 @@
+[gd_scene format=3 uid="uid://v3hctmubwwfs"]
+
+[ext_resource type="Texture2D" uid="uid://dluu6w1icq1w6" path="res://Assets/Background/BANCKGROUND MAIN MENU GAME SAWIT PRABIWIT.jpeg" id="2_1x3cv"]
+[ext_resource type="FontFile" uid="uid://cqb1hwgjj4ypu" path="res://Assets/Font/Black Pixel.ttf" id="3_jc45y"]
+[ext_resource type="AudioStream" uid="uid://djjt5r06yetuc" path="res://YTDown.com_YouTube_Media_c5hUGaYFL1M_Jammin-Bread_009_128k.mp3" id="3_o5w3e"]
+[ext_resource type="Script" uid="uid://dxyiuyhnsrm0l" path="res://menu/audio_control.gd" id="4_1x3cv"]
+[ext_resource type="AudioStream" uid="uid://casmnoeyntolf" path="res://gregorquendel-designed-fire-winds-swoosh-04-116788.mp3" id="5_jc45y"]
+
+[sub_resource type="GDScript" id="GDScript_f5okj"]
+script/source = "extends Control
+@onready var main_menu: VBoxContainer = $MainMenu
+@onready var options: Panel = $Options
+@onready var start_menu: Panel = $StartMenu
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	main_menu.visible = true
+	start_menu.visible = false
+	options.visible = false
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
+func _on_start_button_pressed() -> void:
+	print(\"Start pressed\")
+	main_menu.visible = false
+	start_menu.visible = true
+
+
+func _on_option_button_pressed() -> void:
+	print(\"Settings pressed\")
+	main_menu.visible = false
+	options.visible = true
+
+
+func _on_exit_button_pressed() -> void:
+	print(\"Exit pressed\")
+	get_tree().quit()
+
+func _on_return_button_pressed() -> void:
+	_ready()
+
+
+func _on_return_menu_pressed() -> void:
+	_ready()
+"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b1lj4"]
+texture = ExtResource("2_1x3cv")
+modulate_color = Color(0.31061712, 0.31061712, 0.3106171, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7vrkn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fu7sn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jix8l"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_glbon"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f5okj"]
+bg_color = Color(0.051970966, 0.05197096, 0.05197095, 0.6)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_xrivr"]
+color = Color(0.8113931, 0.7198194, 0.5087799, 1)
+thickness = 6
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_njqwk"]
+color = Color(0.5069937, 0.41349134, 0.22868401, 1)
+thickness = 6
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1x3cv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jc45y"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s8mfa"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0tw43"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_youj7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l5uyn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8qj3r"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k5y3h"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k17ts"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1vfm6"]
+
+[node name="MainMenu" type="Control" unique_id=1516154691]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_right = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_f5okj")
+
+[node name="Background" type="Panel" parent="." unique_id=571540033]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_b1lj4")
+
+[node name="MainMenu" type="VBoxContainer" parent="." unique_id=569874184]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -188.125
+offset_top = -36.0
+offset_right = 188.125
+offset_bottom = 180.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 9
+
+[node name="start_button" type="Button" parent="MainMenu" unique_id=2001288451]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.68235296, 0.627451, 0.36862746, 1)
+theme_override_colors/font_pressed_color = Color(0.49411765, 0.44705883, 0.23921569, 1)
+theme_override_colors/font_hover_color = Color(0.3529412, 0.31764707, 0.16078432, 1)
+theme_override_fonts/font = ExtResource("3_jc45y")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxEmpty_7vrkn")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_fu7sn")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_jix8l")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_glbon")
+text = "START GAME"
+
+[node name="option_button" type="Button" parent="MainMenu" unique_id=1208310084]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.68235296, 0.627451, 0.36862746, 1)
+theme_override_colors/font_pressed_color = Color(0.49364698, 0.44896752, 0.23876238, 1)
+theme_override_colors/font_hover_color = Color(0.35369995, 0.3195824, 0.158831, 1)
+theme_override_fonts/font = ExtResource("3_jc45y")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxEmpty_7vrkn")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_fu7sn")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_jix8l")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_glbon")
+text = "OPTION"
+
+[node name="exit_button" type="Button" parent="MainMenu" unique_id=2075188161]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.68235296, 0.627451, 0.36862746, 1)
+theme_override_colors/font_pressed_color = Color(0.49364698, 0.44896752, 0.23876238, 1)
+theme_override_colors/font_hover_color = Color(0.35369995, 0.3195824, 0.158831, 1)
+theme_override_fonts/font = ExtResource("3_jc45y")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxEmpty_7vrkn")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_fu7sn")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_jix8l")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_glbon")
+text = "EXIT	"
+
+[node name="Label" type="Label" parent="." unique_id=312085342]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -270.0
+offset_top = -226.0
+offset_right = 268.0
+offset_bottom = -125.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.68235296, 0.627451, 0.36862746, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 10
+theme_override_fonts/font = ExtResource("3_jc45y")
+theme_override_font_sizes/font_size = 100
+text = "SAWIT PRABIWIT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioStreamMusic" type="AudioStreamPlayer" parent="." unique_id=216451751]
+stream = ExtResource("3_o5w3e")
+autoplay = true
+bus = &"Music"
+
+[node name="Options" type="Panel" parent="." unique_id=1488826572]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -294.0
+offset_top = -84.0
+offset_right = 294.0
+offset_bottom = 278.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_f5okj")
+
+[node name="return_button" type="Button" parent="Options" unique_id=1758279545]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -34.0
+offset_top = 121.0
+offset_right = 34.0
+offset_bottom = 151.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.68235296, 0.627451, 0.36862746, 1)
+theme_override_colors/font_pressed_color = Color(0.49364698, 0.44896752, 0.23876238, 1)
+theme_override_colors/font_hover_color = Color(0.35369995, 0.3195824, 0.158831, 1)
+theme_override_fonts/font = ExtResource("3_jc45y")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxEmpty_7vrkn")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_fu7sn")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_jix8l")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_glbon")
+text = "BACK"
+
+[node name="Label" type="Label" parent="Options" unique_id=1656209491]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -208.0
+offset_top = -160.0
+offset_right = 208.0
+offset_bottom = -110.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.68235296, 0.627451, 0.36862746, 1)
+theme_override_fonts/font = ExtResource("3_jc45y")
+theme_override_font_sizes/font_size = 50
+text = "VOLUME CONTROLS"
+
+[node name="AudioControl" type="HSlider" parent="Options" unique_id=1908637414]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -201.0
+offset_top = -34.0
+offset_right = 206.0
+offset_bottom = -5.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/slider = SubResource("StyleBoxLine_xrivr")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_njqwk")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_njqwk")
+max_value = 1.0
+step = 0.05
+value = 1.0
+script = ExtResource("4_1x3cv")
+audio_bus_name = "Music"
+
+[node name="AudioControl2" type="HSlider" parent="Options" unique_id=470821674]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -199.0
+offset_top = 3.0
+offset_right = 208.0
+offset_bottom = 31.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/slider = SubResource("StyleBoxLine_xrivr")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_njqwk")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_njqwk")
+max_value = 1.0
+step = 0.05
+value = 1.0
+script = ExtResource("4_1x3cv")
+audio_bus_name = "SFX"
+
+[node name="StartMenu" type="Panel" parent="." unique_id=1319636410]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -309.5
+offset_top = -90.0
+offset_right = 309.5
+offset_bottom = 265.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_1x3cv")
+
+[node name="Button" type="Button" parent="StartMenu" unique_id=2032682908]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -114.0
+offset_top = -107.5
+offset_right = 113.875
+offset_bottom = -48.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.68235296, 0.62352943, 0.36862746, 1)
+theme_override_colors/font_pressed_color = Color(0.49411765, 0.44705883, 0.23921569, 1)
+theme_override_colors/font_hover_color = Color(0.3529412, 0.31764707, 0.16078432, 1)
+theme_override_fonts/font = ExtResource("3_jc45y")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxEmpty_jc45y")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_s8mfa")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_0tw43")
+text = "NEW GAME"
+
+[node name="Button2" type="Button" parent="StartMenu" unique_id=1869755027]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -113.9375
+offset_top = -37.5
+offset_right = 113.9375
+offset_bottom = 21.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.68235296, 0.62352943, 0.36862746, 1)
+theme_override_colors/font_pressed_color = Color(0.49411765, 0.44705883, 0.23921569, 1)
+theme_override_colors/font_hover_color = Color(0.3529412, 0.31764707, 0.16078432, 1)
+theme_override_fonts/font = ExtResource("3_jc45y")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxEmpty_youj7")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_l5uyn")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_8qj3r")
+text = "CONTINUE"
+
+[node name="return_menu" type="Button" parent="StartMenu" unique_id=901909835]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -114.0
+offset_top = 32.5
+offset_right = 113.875
+offset_bottom = 91.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.68235296, 0.62352943, 0.36862746, 1)
+theme_override_colors/font_pressed_color = Color(0.49411765, 0.44705883, 0.23921569, 1)
+theme_override_colors/font_hover_color = Color(0.3529412, 0.31764707, 0.16078432, 1)
+theme_override_fonts/font = ExtResource("3_jc45y")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxEmpty_k5y3h")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_k17ts")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_1vfm6")
+text = "RETURN"
+
+[node name="AudioStreamSFX" type="AudioStreamPlayer" parent="." unique_id=1067294213]
+stream = ExtResource("5_jc45y")
+bus = &"SFX"
+
+[connection signal="pressed" from="MainMenu/start_button" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="MainMenu/option_button" to="." method="_on_option_button_pressed"]
+[connection signal="pressed" from="MainMenu/exit_button" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="Options/return_button" to="." method="_on_return_button_pressed"]
+[connection signal="value_changed" from="Options/AudioControl" to="Options/AudioControl" method="_on_value_changed"]
+[connection signal="value_changed" from="Options/AudioControl2" to="Options/AudioControl2" method="_on_value_changed"]
+[connection signal="pressed" from="StartMenu/return_menu" to="." method="_on_return_menu_pressed"]
