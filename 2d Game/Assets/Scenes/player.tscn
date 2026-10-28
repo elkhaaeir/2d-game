@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dnpy4yp8nkygw"]
 
 [ext_resource type="Script" uid="uid://cg1d5vsmjbwxw" path="res://Assets/Scripts/player_controller.gd" id="1_7dd06"]
-[ext_resource type="Texture2D" uid="uid://btnh66tmyg5x4" path="res://Assets/Sprites/agen PT.png" id="2_7dd06"]
+[ext_resource type="Texture2D" uid="uid://btnh66tmyg5x4" path="res://Assets/Sprites/karakter/agen PT.png" id="2_7dd06"]
 [ext_resource type="Script" uid="uid://trqcju75px42" path="res://Assets/Scripts/player_animator.gd" id="2_38rej"]
 
 [sub_resource type="Animation" id="Animation_t1xgp"]
@@ -99,13 +99,19 @@ radius = 4.0
 height = 14.0
 
 [node name="Player" type="CharacterBody2D" unique_id=1072131841]
+collision_mask = 768
 script = ExtResource("1_7dd06")
-speed = 5.0
-jump_power = 8.0
+speed = 1.5
+jump_power = 12.0
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=983377136]
+position = Vector2(0, -8)
 offset = Vector2(0, -35)
-zoom = Vector2(5, 5)
+limit_left = 0
+limit_top = 100
+limit_bottom = 324
+position_smoothing_enabled = true
+position_smoothing_speed = 8.0
 
 [node name="PlayerAnimator" type="Node2D" parent="." unique_id=243474727 node_paths=PackedStringArray("player_controller", "animation_player", "sprite")]
 script = ExtResource("2_38rej")
@@ -126,5 +132,6 @@ region_enabled = true
 region_rect = Rect2(0, 16, 16, 16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=438232129]
+visible = false
 position = Vector2(0, -8)
 shape = SubResource("CapsuleShape2D_gwcng")
