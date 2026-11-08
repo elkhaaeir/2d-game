@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://n432huj3nnty"]
+
+[ext_resource type="Texture2D" uid="uid://s1go2ceb70l" path="res://Assets-gameplay/Sprites-gameplay/sawit.png" id="1_o7iqf"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gwcng"]
+radius = 8.0
+height = 16.0
+
+[node name="Mutan" type="CharacterBody2D" unique_id=1975346953]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2088209949]
+position = Vector2(0, -8)
+texture = ExtResource("1_o7iqf")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=74348776]
+position = Vector2(0, -8)
+shape = SubResource("CapsuleShape2D_gwcng")

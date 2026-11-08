@@ -1,0 +1,22 @@
+PAUSE MENU - IMPLEMENTASI
+
+Kontrol:
+- ESC: buka/tutup pause menu saat berada di Area 1-4.
+- SETTINGS: buka pengaturan volume Music dan SFX.
+- BACK pada Audio Settings: kembali ke menu pause.
+- CONTINUE: tutup pause menu dan lanjutkan permainan.
+- BACK TO MENU: kembali ke Main Menu.
+- EXIT THE GAME: keluar dari game.
+
+File utama yang ditambahkan/diubah:
+- Assets-gameplay/Scripts-gameplay/pause_manager.gd
+- Assets-menu/menu/game_settings.gd
+- Assets-gameplay/Scenes-gameplay/game_settings.tscn
+- project.godot (autoload PauseManager dan input ESC)
+- Assets-menu/menu/main_menu.tscn (perbaikan path tombol Continue)
+- Assets-gameplay/Scenes-gameplay/player.tscn (menghapus koneksi signal ke callback yang tidak ada)
+
+Catatan:
+- Pause menu dibuat sebagai CanvasLayer autoload agar tersedia di seluruh scene gameplay.
+- Audio slider mengubah bus bernama Music dan SFX dari default_bus_layout.tres.
+- Folder .godot sengaja tidak disertakan dalam arsip; Godot akan membuat ulang cache saat project dibuka.

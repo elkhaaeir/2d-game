@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bx3cyx7m2ny5n"]
+
+[ext_resource type="Texture2D" uid="uid://3xoemd5pdenc" path="res://Assets-gameplay/Sprites-gameplay/karakter/Cewe.png" id="1_prevn"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_by8m4"]
+radius = 6.0
+height = 16.0
+
+[node name="NPC" type="CharacterBody2D" unique_id=1718789106 groups=["dialogue_npc"]]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=487492686]
+position = Vector2(1, -8)
+texture = ExtResource("1_prevn")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1984182146]
+position = Vector2(0, -8)
+shape = SubResource("CapsuleShape2D_by8m4")
