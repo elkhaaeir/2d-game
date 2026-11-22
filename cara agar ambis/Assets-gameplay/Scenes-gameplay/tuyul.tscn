@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://b8hkhct55knyl"]
+
+[ext_resource type="Texture2D" uid="uid://cvpkeffanpdmi" path="res://Assets-gameplay/Sprites-gameplay/tuyul.png" id="1_jasts"]
+[ext_resource type="Script" uid="uid://ccpn8vog0hnuf" path="res://Assets-gameplay/Scripts-gameplay/tuyul.gd" id="1_vpj5e"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gquvw"]
+atlas = ExtResource("1_jasts")
+region = Rect2(0, 0, 13, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n4rqe"]
+atlas = ExtResource("1_jasts")
+region = Rect2(14, 0, 13, 15)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_13qdw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gquvw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n4rqe")
+}],
+"loop": 1,
+"name": &"run",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jasts"]
+radius = 5.0
+height = 14.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jobgd"]
+radius = 24.083189
+
+[node name="Tuyul" type="CharacterBody2D" unique_id=517775308]
+collision_layer = 5
+collision_mask = 769
+script = ExtResource("1_vpj5e")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=582581474]
+position = Vector2(0, -8)
+sprite_frames = SubResource("SpriteFrames_13qdw")
+animation = &"run"
+frame_progress = 0.91689193
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=186732818]
+position = Vector2(0, -8)
+shape = SubResource("CapsuleShape2D_jasts")
+
+[node name="DamageArea" type="Area2D" parent="." unique_id=240802991]
+position = Vector2(0, -7)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea" unique_id=1879109968]
+shape = SubResource("CircleShape2D_jobgd")
+
+[node name="PatrolLeft" type="Marker2D" parent="." unique_id=606777072]
+position = Vector2(-99, -7)
+gizmo_extents = 100.0
+
+[node name="PatrolRight" type="Marker2D" parent="." unique_id=1835726052]
+position = Vector2(100, -7)
+gizmo_extents = 100.0
+
+[connection signal="body_entered" from="DamageArea" to="." method="_on_damage_area_body_entered"]

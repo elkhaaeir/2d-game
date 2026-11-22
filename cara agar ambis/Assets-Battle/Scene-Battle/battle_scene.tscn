@@ -1,0 +1,197 @@
+[gd_scene format=3 uid="uid://cytlb4n340jnf"]
+
+[ext_resource type="Script" uid="uid://b02sgjnuyob0u" path="res://Assets-Battle/Scripts-Battle/battle_scene.gd" id="1_u6v5k"]
+[ext_resource type="Texture2D" uid="uid://r82iue4d0u52" path="res://Assets-Battle/Sprites-battle/enemy_idle.png" id="2_8k3np"]
+
+[node name="BattleScene" type="Control" unique_id=1515368923]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_u6v5k")
+
+[node name="Background" type="ColorRect" parent="." unique_id=1823613804]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Enemy" type="TextureRect" parent="." unique_id=1582633924]
+custom_minimum_size = Vector2(256, 256)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_8k3np")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="PlayerStatus" type="VBoxContainer" parent="." unique_id=442392641]
+layout_mode = 0
+offset_right = 450.0
+offset_bottom = 99.0
+
+[node name="PlayerName" type="Label" parent="PlayerStatus" unique_id=2027657386]
+layout_mode = 2
+text = "Player"
+
+[node name="PlayerHP" type="ProgressBar" parent="PlayerStatus" unique_id=270439147]
+layout_mode = 2
+value = 100.0
+
+[node name="WeaponStatus" type="Label" parent="PlayerStatus" unique_id=1383910920]
+layout_mode = 2
+text = "Senjata Tidak Aktif"
+horizontal_alignment = 1
+
+[node name="EnemyStatus" type="VBoxContainer" parent="." unique_id=1137939985]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -464.0
+offset_bottom = 104.0
+grow_horizontal = 0
+
+[node name="EnemyName" type="Label" parent="EnemyStatus" unique_id=448653522]
+layout_mode = 2
+text = "Monster Ungu"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="EnemyHP" type="ProgressBar" parent="EnemyStatus" unique_id=937826233]
+layout_mode = 2
+value = 100.0
+
+[node name="BattleUI" type="VBoxContainer" parent="." unique_id=926708285]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 30.0
+offset_top = -150.0
+offset_right = -30.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Message" type="Label" parent="BattleUI" unique_id=153055819]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="BattleUI" unique_id=2028328647]
+layout_mode = 2
+
+[node name="ActionMenu" type="GridContainer" parent="BattleUI/CenterContainer" unique_id=1973689674]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+columns = 2
+
+[node name="AttackButton" type="Button" parent="BattleUI/CenterContainer/ActionMenu" unique_id=1425178482]
+custom_minimum_size = Vector2(160, 45)
+layout_mode = 2
+text = "ATTACK"
+
+[node name="DefendButton" type="Button" parent="BattleUI/CenterContainer/ActionMenu" unique_id=137342819]
+custom_minimum_size = Vector2(160, 45)
+layout_mode = 2
+text = "DEFEND"
+
+[node name="ItemButton" type="Button" parent="BattleUI/CenterContainer/ActionMenu" unique_id=1890671524]
+custom_minimum_size = Vector2(160, 45)
+layout_mode = 2
+text = "ITEM"
+
+[node name="RunButton" type="Button" parent="BattleUI/CenterContainer/ActionMenu" unique_id=351512966]
+custom_minimum_size = Vector2(160, 45)
+layout_mode = 2
+text = "RUN"
+
+[node name="InventoryPanel" type="Panel" parent="." unique_id=342232142]
+custom_minimum_size = Vector2(400, 300)
+layout_mode = 0
+offset_left = 30.0
+offset_top = 180.0
+offset_right = 1122.0
+offset_bottom = 480.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="InventoryPanel" unique_id=1920759034]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="InventoryPanel/VBoxContainer" unique_id=1762361396]
+layout_mode = 2
+text = "INVENTORY"
+horizontal_alignment = 1
+
+[node name="ItemList" type="VBoxContainer" parent="InventoryPanel/VBoxContainer" unique_id=1665967257]
+layout_mode = 2
+
+[node name="MedkitButton" type="Button" parent="InventoryPanel/VBoxContainer/ItemList" unique_id=1026503657]
+layout_mode = 2
+text = "Medkit x3"
+
+[node name="SenjataButton" type="Button" parent="InventoryPanel/VBoxContainer/ItemList" unique_id=716216755]
+layout_mode = 2
+text = "Senjata x2"
+
+[node name="CloseButton" type="Button" parent="InventoryPanel/VBoxContainer" unique_id=1151665660]
+layout_mode = 2
+text = "CLOSE"
+
+[node name="BattleResult" type="Panel" parent="." unique_id=813065828]
+custom_minimum_size = Vector2(400, 250)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BattleResult" unique_id=1973524473]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ResultTitle" type="Label" parent="BattleResult/VBoxContainer" unique_id=332944839]
+layout_mode = 2
+text = "BATTLE FINISHED"
+horizontal_alignment = 1
+
+[node name="ResultMessage" type="Label" parent="BattleResult/VBoxContainer" unique_id=2136276196]
+layout_mode = 2
+text = "Pertarungan Selesai"
+horizontal_alignment = 1
+
+[node name="BackButton" type="Button" parent="BattleResult/VBoxContainer" unique_id=1262871722]
+layout_mode = 2
+text = "KEMBALI"

@@ -1,0 +1,214 @@
+[gd_scene format=3 uid="uid://dxas3saic5d3y"]
+
+[ext_resource type="FontFile" uid="uid://cqb1hwgjj4ypu" path="res://Assets-menu/Font/Black Pixel.ttf" id="1_font"]
+[ext_resource type="Script" uid="uid://dublkp2w5e67s" path="res://Assets-menu/menu/game_settings.gd" id="2_script"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_background"]
+bg_color = Color(0.015, 0.015, 0.015, 0.88)
+border_color = Color(0.68, 0.63, 0.37, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_button"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0ewey"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m5nfm"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_jc45y"]
+color = Color(0.33412233, 0.33412248, 0.33412245, 0.54901963)
+thickness = 6
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_njqwk"]
+color = Color(0.5069937, 0.41349134, 0.22868401, 1)
+thickness = 6
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w21y6"]
+
+[node name="GameSettings" type="CanvasLayer" unique_id=590555916]
+layer = 100
+script = ExtResource("2_script")
+
+[node name="Settings" type="Panel" parent="." unique_id=1670155790]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_background")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Settings" unique_id=268535130]
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -220.0
+offset_right = 250.0
+offset_bottom = 220.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 128
+
+[node name="Title" type="Label" parent="Settings/VBoxContainer" unique_id=1145356405]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.68, 0.63, 0.37, 1)
+theme_override_fonts/font = ExtResource("1_font")
+theme_override_font_sizes/font_size = 72
+text = "PAUSED"
+horizontal_alignment = 1
+
+[node name="Buttons" type="VBoxContainer" parent="Settings/VBoxContainer" unique_id=124854674]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="Setting" type="Button" parent="Settings/VBoxContainer/Buttons" unique_id=422815001]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.68235296, 0.627451, 0.36862746, 1)
+theme_override_colors/font_pressed_color = Color(0.43557784, 0.393003, 0.20480436, 1)
+theme_override_colors/font_hover_color = Color(0.90588236, 0.8666667, 0.69411767, 1)
+theme_override_constants/h_separation = 0
+theme_override_fonts/font = ExtResource("1_font")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_button")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_0ewey")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_m5nfm")
+text = "SETTINGS"
+
+[node name="Continue" type="Button" parent="Settings/VBoxContainer/Buttons" unique_id=894971190]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.68235296, 0.627451, 0.36862746, 1)
+theme_override_colors/font_pressed_color = Color(0.43557784, 0.393003, 0.20480436, 1)
+theme_override_colors/font_hover_color = Color(0.90588236, 0.8666667, 0.69411767, 1)
+theme_override_constants/h_separation = 0
+theme_override_fonts/font = ExtResource("1_font")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_button")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_0ewey")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_m5nfm")
+text = "CONTINUE"
+
+[node name="BackToMenu" type="Button" parent="Settings/VBoxContainer/Buttons" unique_id=1877877725]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.68235296, 0.627451, 0.36862746, 1)
+theme_override_colors/font_pressed_color = Color(0.43557784, 0.393003, 0.20480436, 1)
+theme_override_colors/font_hover_color = Color(0.90588236, 0.8666667, 0.69411767, 1)
+theme_override_constants/h_separation = 0
+theme_override_fonts/font = ExtResource("1_font")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_button")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_0ewey")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_m5nfm")
+text = "BACK TO MENU"
+
+[node name="Exit" type="Button" parent="Settings/VBoxContainer/Buttons" unique_id=1201965221]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.68235296, 0.627451, 0.36862746, 1)
+theme_override_colors/font_pressed_color = Color(0.43557784, 0.393003, 0.20480436, 1)
+theme_override_colors/font_hover_color = Color(0.90588236, 0.8666667, 0.69411767, 1)
+theme_override_constants/h_separation = 0
+theme_override_fonts/font = ExtResource("1_font")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_button")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_0ewey")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_m5nfm")
+text = "EXIT THE GAME"
+
+[node name="AudioSettings" type="Panel" parent="." unique_id=1995467185]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_background")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AudioSettings" unique_id=2000543477]
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -180.0
+offset_right = 300.0
+offset_bottom = 180.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 32
+
+[node name="Title" type="Label" parent="AudioSettings/VBoxContainer" unique_id=653195866]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.68, 0.63, 0.37, 1)
+theme_override_fonts/font = ExtResource("1_font")
+theme_override_font_sizes/font_size = 58
+text = "AUDIO SETTINGS"
+horizontal_alignment = 1
+
+[node name="MusicLabel" type="Label" parent="AudioSettings/VBoxContainer" unique_id=1037225714]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.68, 0.63, 0.37, 1)
+theme_override_fonts/font = ExtResource("1_font")
+theme_override_font_sizes/font_size = 30
+text = "MUSIC VOLUME"
+
+[node name="MusicSlider" type="HSlider" parent="AudioSettings/VBoxContainer" unique_id=1136732387]
+custom_minimum_size = Vector2(500, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/slider = SubResource("StyleBoxLine_jc45y")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_njqwk")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_njqwk")
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="SFXLabel" type="Label" parent="AudioSettings/VBoxContainer" unique_id=520836004]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.68, 0.63, 0.37, 1)
+theme_override_fonts/font = ExtResource("1_font")
+theme_override_font_sizes/font_size = 30
+text = "SFX VOLUME"
+
+[node name="SFXSlider" type="HSlider" parent="AudioSettings/VBoxContainer" unique_id=160445594]
+custom_minimum_size = Vector2(500, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/slider = SubResource("StyleBoxLine_jc45y")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_njqwk")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_njqwk")
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="AudioBack" type="Button" parent="AudioSettings/VBoxContainer" unique_id=1337469205]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.68235296, 0.627451, 0.36862746, 1)
+theme_override_colors/font_pressed_color = Color(0.43557784, 0.393003, 0.20480436, 1)
+theme_override_colors/font_hover_color = Color(0.90588236, 0.8666667, 0.69411767, 1)
+theme_override_constants/h_separation = 0
+theme_override_fonts/font = ExtResource("1_font")
+theme_override_font_sizes/font_size = 34
+theme_override_styles/normal = SubResource("StyleBoxEmpty_button")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_w21y6")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_button")
+text = "BACK"
+
+[connection signal="pressed" from="Settings/VBoxContainer/Buttons/Setting" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="Settings/VBoxContainer/Buttons/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="Settings/VBoxContainer/Buttons/BackToMenu" to="." method="_on_back_to_menu_pressed"]
+[connection signal="pressed" from="Settings/VBoxContainer/Buttons/Exit" to="." method="_on_exit_pressed"]
+[connection signal="value_changed" from="AudioSettings/VBoxContainer/MusicSlider" to="." method="_on_music_value_changed"]
+[connection signal="value_changed" from="AudioSettings/VBoxContainer/SFXSlider" to="." method="_on_sfx_value_changed"]
+[connection signal="pressed" from="AudioSettings/VBoxContainer/AudioBack" to="." method="_on_audio_back_pressed"]
