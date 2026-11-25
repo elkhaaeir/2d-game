@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://d1ok1n5sxdcda"]
+
+[ext_resource type="Script" uid="uid://bm7lc6q7t8yc2" path="res://Assets-story/story_sequence.gd" id="1"]
+
+[node name="Arc1Intro" type="Control" unique_id=960592009]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1")
+next_scene = "res://Assets-gameplay/Scenes-gameplay/Areas/areas_2.tscn"
+
+[node name="Background" type="ColorRect" parent="." unique_id=1233795398]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.035, 0.055, 0.05, 1)
+
+[node name="Title" type="Label" parent="." unique_id=236528442]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 94.0
+offset_bottom = 150.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.95, 0.66, 0.32, 1)
+theme_override_font_sizes/font_size = 32
+text = "ARC 1 - KABUT DI NUSA KELAM"
+horizontal_alignment = 1
+
+[node name="Story" type="Label" parent="." unique_id=832782185]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 110.0
+offset_top = 196.0
+offset_right = -110.0
+offset_bottom = 380.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.88, 0.9, 0.84, 1)
+theme_override_font_sizes/font_size = 21
+text = "Pos lapangan kehilangan kontak dengan desa di tepi hutan.
+
+Ikuti laporan, periksa perlengkapan pelindung, dan cari warga yang tertinggal. Kabut kali ini tidak bergerak seperti biasanya."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="ContinueButton" type="Button" parent="." unique_id=1095341585]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -180.0
+offset_top = 161.0
+offset_right = 180.0
+offset_bottom = 221.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 18
+text = "MULAI MISI  [ENTER]"

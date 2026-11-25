@@ -1,0 +1,110 @@
+[gd_scene format=3 uid="uid://n432huj3nnty"]
+
+[ext_resource type="Script" uid="uid://b85hmdmf85o1d" path="res://Assets-gameplay/Scripts-gameplay/enemy.gd" id="1_duhym"]
+[ext_resource type="Texture2D" uid="uid://s1go2ceb70l" path="res://Assets-gameplay/Sprites-gameplay/sawit.png" id="2_qt5vf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_48t33"]
+atlas = ExtResource("2_qt5vf")
+region = Rect2(0, 0, 16, 27)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r3ya0"]
+atlas = ExtResource("2_qt5vf")
+region = Rect2(0, 27, 16, 27)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1po26"]
+atlas = ExtResource("2_qt5vf")
+region = Rect2(16, 27, 16, 27)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3vrlt"]
+atlas = ExtResource("2_qt5vf")
+region = Rect2(32, 27, 16, 27)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_duhym"]
+atlas = ExtResource("2_qt5vf")
+region = Rect2(0, 27, 16, 27)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qt5vf"]
+atlas = ExtResource("2_qt5vf")
+region = Rect2(16, 27, 16, 27)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_saevl"]
+atlas = ExtResource("2_qt5vf")
+region = Rect2(32, 27, 16, 27)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s0uax"]
+atlas = ExtResource("2_qt5vf")
+region = Rect2(0, 0, 16, 27)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6cqfn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_48t33")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r3ya0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1po26")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3vrlt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_duhym")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qt5vf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_saevl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s0uax")
+}],
+"loop": 1,
+"name": &"run",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gwcng"]
+radius = 7.0
+height = 22.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xrivr"]
+radius = 50.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_duhym"]
+radius = 13.0
+
+[node name="Enemy" type="CharacterBody2D" unique_id=1975346953]
+script = ExtResource("1_duhym")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2097687861]
+position = Vector2(-1, -13)
+scale = Vector2(1, 0.9814815)
+sprite_frames = SubResource("SpriteFrames_6cqfn")
+animation = &"run"
+frame = 3
+frame_progress = 0.82557845
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=74348776]
+position = Vector2(0, -12)
+shape = SubResource("CapsuleShape2D_gwcng")
+
+[node name="DetectionArea" type="Area2D" parent="." unique_id=466876222]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="DetectionArea" unique_id=1499197964]
+position = Vector2(0, -11)
+shape = SubResource("CircleShape2D_xrivr")
+
+[node name="EncounterArea" type="Area2D" parent="." unique_id=1051701816]
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="EncounterArea" unique_id=363488363]
+position = Vector2(0, -12)
+shape = SubResource("CircleShape2D_duhym")

@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://ceja0v27bkgs6"]
+
+[ext_resource type="PackedScene" uid="uid://dnpy4yp8nkygw" path="res://Assets-gameplay/Scenes-gameplay/player.tscn" id="1_btqaw"]
+
+[node name="area_10" type="Node2D" unique_id=813841160]
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=2042780694]
+
+[node name="Parallax2D2" type="Parallax2D" parent="." unique_id=322966926]
+
+[node name="Parallax2D3" type="Parallax2D" parent="." unique_id=200715020]
+
+[node name="Player" parent="." unique_id=1072131841 instance=ExtResource("1_btqaw")]

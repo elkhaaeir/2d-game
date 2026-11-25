@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://dujdcgbig8fuq"]
+
+[ext_resource type="Script" uid="uid://bm7lc6q7t8yc2" path="res://Assets-story/story_sequence.gd" id="1"]
+
+[node name="Arc3Placeholder" type="Control" unique_id=199696010]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1")
+next_scene = "res://Assets-menu/menu/main_menu.tscn"
+
+[node name="Background" type="ColorRect" parent="." unique_id=499515994]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.025, 0.025, 0.04, 1)
+
+[node name="Title" type="Label" parent="." unique_id=526527071]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 28
+text = "ARC 3 - NASKAH BELUM DIISI"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ContinueButton" type="Button" parent="." unique_id=1810100401]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -180.0
+offset_top = 188.0
+offset_right = 180.0
+offset_bottom = 248.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "KEMBALI KE MENU"

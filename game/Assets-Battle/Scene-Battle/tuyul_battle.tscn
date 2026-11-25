@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://stfxqr46nrt0"]
+
+[ext_resource type="PackedScene" uid="uid://cytlb4n340jnf" path="res://Assets-Battle/Scene-Battle/battle_scene.tscn" id="1_base"]
+[ext_resource type="Texture2D" uid="uid://cvpkeffanpdmi" path="res://Assets-gameplay/Sprites-gameplay/tuyul.png" id="2_tuyul"]
+
+[node name="BattleScene" unique_id=1794411846 instance=ExtResource("1_base")]
+
+[node name="Enemy" parent="." index="1" unique_id=1582633924]
+texture = ExtResource("2_tuyul")
+
+[node name="EnemyName" parent="EnemyStatus" parent_id_path=PackedInt32Array(1137939985) index="0" unique_id=448653522]
+text = "Tuyul Liar"
