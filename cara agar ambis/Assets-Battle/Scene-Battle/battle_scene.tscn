@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://cytlb4n340jnf"]
 
 [ext_resource type="Script" uid="uid://b02sgjnuyob0u" path="res://Assets-Battle/Scripts-Battle/battle_scene.gd" id="1_u6v5k"]
-[ext_resource type="Texture2D" uid="uid://r82iue4d0u52" path="res://Assets-Battle/Sprites-battle/enemy_idle.png" id="2_8k3np"]
+[ext_resource type="Texture2D" uid="uid://c71cfytflp5b4" path="res://Assets-gameplay/Sprites-gameplay/bg battle 1.png" id="2_8k3np"]
+[ext_resource type="Texture2D" uid="uid://ckxkvor5w883i" path="res://Assets-gameplay/Sprites-gameplay/Prbwo.png" id="2_u6v5k"]
 
 [node name="BattleScene" type="Control" unique_id=1515368923]
 layout_mode = 3
@@ -12,17 +13,17 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_u6v5k")
 
-[node name="Background" type="ColorRect" parent="." unique_id=1823613804]
+[node name="Background" type="TextureRect" parent="." unique_id=2020629076]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 1)
+texture = ExtResource("2_8k3np")
 
 [node name="Enemy" type="TextureRect" parent="." unique_id=1582633924]
-custom_minimum_size = Vector2(256, 256)
+custom_minimum_size = Vector2(1080, 512)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -35,7 +36,7 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_8k3np")
+texture = ExtResource("2_u6v5k")
 expand_mode = 1
 stretch_mode = 5
 metadata/_edit_use_anchors_ = true
@@ -69,7 +70,7 @@ grow_horizontal = 0
 
 [node name="EnemyName" type="Label" parent="EnemyStatus" unique_id=448653522]
 layout_mode = 2
-text = "Monster Ungu"
+text = "Prawiwit Sawit"
 horizontal_alignment = 1
 vertical_alignment = 1
 

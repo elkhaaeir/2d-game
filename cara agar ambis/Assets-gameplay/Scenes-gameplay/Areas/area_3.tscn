@@ -383,7 +383,6 @@ position = Vector2(1200, 2666.6667)
 texture = ExtResource("4_ug6l6")
 
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=373440993]
-visible = false
 z_index = 1
 repeat_size = Vector2(1024, 0)
 autoscroll = Vector2(-50, 0)
