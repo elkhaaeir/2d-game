@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://4rrm064sd3gb"]
+
+[ext_resource type="Script" uid="uid://bhfqf4mdwb5b5" path="res://Assets-gameplay/Scripts-gameplay/item_pickup.gd" id="1_08emm"]
+[ext_resource type="Texture2D" uid="uid://dtkybhpaasy35" path="res://Assets-gameplay/Sprites-gameplay/health-red 32px.png" id="2_0g5rj"]
+[ext_resource type="FontFile" uid="uid://cqb1hwgjj4ypu" path="res://Assets-menu/Font/Black Pixel.ttf" id="3_jg5w2"]
+
+[sub_resource type="CircleShape2D" id="1"]
+radius = 16.0
+
+[node name="MedkitPickup" type="Area2D" unique_id=312040845]
+collision_layer = 0
+script = ExtResource("1_08emm")
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=404892083]
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("2_0g5rj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=987891608]
+shape = SubResource("1")
+
+[node name="Prompt" type="Label" parent="." unique_id=92085921]
+offset_left = -24.0
+offset_top = -31.0
+offset_right = 24.0
+offset_bottom = -19.0
+theme_override_colors/font_color = Color(1, 0.9, 0.45, 1)
+theme_override_fonts/font = ExtResource("3_jg5w2")
+theme_override_font_sizes/font_size = 8
+text = "[ENTER] Ambil"

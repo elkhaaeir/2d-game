@@ -61,6 +61,8 @@ func start_battle(player, enemy_id, enemy_type := "green_monster"):
 	current_enemy_id = enemy_id
 	current_enemy_type = enemy_type
 	battle_won = false
+	
+	InventoryArea.hide()
 
 func finish_battle(victory):
 	battle_won = victory
@@ -74,6 +76,8 @@ func set_respawn_point(position):
 func return_to_level():
 	returning_from_battle = true
 	get_tree().change_scene_to_file(current_level_path)
+	
+	InventoryArea.show()
 
 func update_player_hud():
 	PlayerHUD.update_hud()

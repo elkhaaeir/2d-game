@@ -1,4 +1,3 @@
-
 extends Control
 
 
@@ -35,8 +34,8 @@ extends Control
 # STATUS PERTARUNGAN
 # ==================================
 
-var enemy_max_hp = 100
-var enemy_damage = 10
+var enemy_max_hp = 200
+var enemy_damage = 15
 
 var attack_damage = 20
 
@@ -55,6 +54,7 @@ var is_defending = false
 func _ready():
 	
 	PlayerHUD.hide_hud()
+	InventoryArea.hide()
 
 	# Mengatur HP pemain dari GameManager
 	player_hp_bar.max_value = GameManager.player_max_hp
@@ -98,6 +98,10 @@ func _ready():
 		$PlayerStatus.hide()
 		$BattleUI.hide()
 		$InventoryPanel.hide()
+		$BattleUIBackground.hide()
+		$BattleUIBackground2.hide()
+		$BattleUIBackground3.hide()
+		InventoryArea.hide()
 
 		# Menampilkan Game Over
 		result_title.text = "GAME OVER"
@@ -455,6 +459,6 @@ func _configure_enemy() -> void:
 		enemy_damage = 7
 		enemy_portrait.texture = load("res://Assets-gameplay/Sprites-gameplay/tuyul.png")
 	else:
-		enemy_name.text = "Monster Hijau"
+		enemy_name.text = "Monster Sawit"
 		enemy_max_hp = 100
 		enemy_damage = 10

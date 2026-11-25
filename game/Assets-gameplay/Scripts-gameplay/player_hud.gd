@@ -48,20 +48,6 @@ func _build_hotbar() -> void:
 	hotbar.alignment = BoxContainer.ALIGNMENT_CENTER
 	hotbar.add_theme_constant_override("separation", 6)
 	panel.add_child(hotbar)
-	for slot_data in [["1", "MEDKIT"], ["2", "OXYGEN"], ["3", "SENJATA"]]:
-		var slot := Label.new()
-		slot.custom_minimum_size = Vector2(108, 52)
-		slot.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-		slot.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-		slot.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-		slot.add_theme_font_size_override("font_size", 13)
-		slot.add_theme_color_override("font_color", Color(1, 0.9, 0.45))
-		slot.add_theme_color_override("font_shadow_color", Color.BLACK)
-		slot.add_theme_constant_override("shadow_offset_x", 2)
-		slot.add_theme_constant_override("shadow_offset_y", 2)
-		slot.text = "%s  %s" % [slot_data[0], slot_data[1]]
-		hotbar.add_child(slot)
-		hotbar_slots.append(slot)
 
 func _update_hotbar() -> void:
 	if hotbar_slots.size() != 3:

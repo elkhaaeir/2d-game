@@ -1,49 +1,81 @@
+
 extends CharacterBody2D
 
 @export var enemy_id: String = "tuyul_1"
+@export var patrol_speed = 130.0
 
-# Pengaturan damage Oxygen
+# ==================================
+# PENGATURAN DAMAGE OXYGEN
+# ==================================
+
 var can_damage = true
 var oxygen_damage = 15
 var damage_cooldown = 1.5
 
-# Kecepatan gerakan Tuyul
-@export var patrol_speed = 130.0
+# ==================================
+# STATUS INTERAKSI DAN BATTLE
+# ==================================
 
-# Mengambil node
+var player_nearby = false
+var nearby_player = null
+var battle_started = false
+
+# ==================================
+# MENGAMBIL NODE
+# ==================================
+
 @onready var animated_sprite = $AnimatedSprite2D
+
+@onready var damage_area = $DamageArea
+@onready var interaction_area = $InteractionArea
+@onready var interaction_prompt = $InteractionPrompt
+
 @onready var patrol_left = $PatrolLeft
 @onready var patrol_right = $PatrolRight
 
-# Arah gerakan
+# ==================================
+# PENGATURAN PATROLI
+# ==================================
+
 var direction = 1
 
-# Batas patroli
 var left_limit = 0.0
 var right_limit = 0.0
-var battle_started := false
 
 
 func _ready():
+	# Menghilangkan Tuyul jika sudah dikalahkan
 	if GameManager.defeated_enemies.has(enemy_id):
 		queue_free()
 		return
 
-	# Mengambil posisi kedua batas patroli
+	# Mengambil posisi batas patroli
 	left_limit = patrol_left.global_position.x
 	right_limit = patrol_right.global_position.x
 
+	# Menyembunyikan tulisan interaksi
+	interaction_prompt.visible = false
+
+	# Menghubungkan Signal DamageArea
+	damage_area.body_entered.connect(_on_damage_area_body_entered)
+
+	# Menghubungkan Signal InteractionArea
+	interaction_area.body_entered.connect(_on_interaction_area_body_entered)
+	interaction_area.body_exited.connect(_on_interaction_area_body_exited)
+
+
+# ==================================
+# GERAKAN TUYUL
+# ==================================
 
 func _physics_process(delta):
 	if battle_started:
 		velocity.x = 0
 		return
 
-	# Jika mencapai batas kiri, berbalik ke kanan
+	# Berbalik ketika mencapai batas patroli
 	if global_position.x <= left_limit:
 		direction = 1
-
-	# Jika mencapai batas kanan, berbalik ke kiri
 	elif global_position.x >= right_limit:
 		direction = -1
 
@@ -56,29 +88,37 @@ func _physics_process(delta):
 
 	# Membalik sprite sesuai arah gerakan
 	animated_sprite.flip_h = direction > 0
-	
-	# animasi lari
+
+	# Menjalankan animasi
 	animated_sprite.play("run")
 
-	# Menjalankan gerakan
 	move_and_slide()
 
 
-func _on_damage_area_body_entered(body: Node2D) -> void:
+# ==================================
+# INPUT TOMBOL ENTER
+# ==================================
 
-	# Memastikan yang terkena adalah Player
-	if body.name != "Player":
-		return
+func _process(_delta):
 	if battle_started:
 		return
 
-	# Enemy kecil memakai alur battle yang sama seperti monster hijau.
-	battle_started = true
-	GameManager.start_battle(body, enemy_id, "tuyul")
-	get_tree().call_deferred("change_scene_to_file", "res://Assets-Battle/Scene-Battle/tuyul_battle.tscn")
-	return
+	if player_nearby and Input.is_action_just_pressed("dialogue"):
+		print("Tombol ENTER terdeteksi!")
+		start_tuyul_battle()
 
-	# Memeriksa cooldown damage
+
+# ==================================
+# DAMAGE OXYGEN
+# ==================================
+
+func _on_damage_area_body_entered(body: Node2D) -> void:
+	if body.name != "Player":
+		return
+
+	if battle_started:
+		return
+
 	if not can_damage:
 		return
 
@@ -100,7 +140,77 @@ func _on_damage_area_body_entered(body: Node2D) -> void:
 	print("Oxygen berkurang 15 detik!")
 	print("Sisa Oxygen: ", GameManager.oxygen)
 
-	# Menunggu sebelum damage berikutnya
+	# Menunggu cooldown
 	await get_tree().create_timer(damage_cooldown).timeout
 
 	can_damage = true
+
+
+# ==================================
+# INTERAKSI PLAYER
+# ==================================
+
+func _on_interaction_area_body_entered(body: Node2D) -> void:
+	if body.name != "Player":
+		return
+
+	if battle_started:
+		return
+
+	player_nearby = true
+	nearby_player = body
+
+	interaction_prompt.visible = true
+
+	# Menghindari tabrakan fisik dengan Player
+	add_collision_exception_with(body)
+
+	print("Player terdeteksi di dekat Tuyul!")
+
+
+func _on_interaction_area_body_exited(body: Node2D) -> void:
+	if body.name != "Player":
+		return
+
+	player_nearby = false
+	nearby_player = null
+
+	interaction_prompt.visible = false
+
+	# Menghapus pengecualian tabrakan saat Player menjauh
+	remove_collision_exception_with(body)
+
+	print("Player menjauh dari Tuyul!")
+
+
+# ==================================
+# MEMULAI BATTLE
+# ==================================
+
+func start_tuyul_battle():
+	if battle_started:
+		return
+
+	if not is_instance_valid(nearby_player):
+		print("Player tidak ditemukan!")
+		return
+
+	battle_started = true
+	player_nearby = false
+
+	interaction_prompt.visible = false
+
+	print("Memulai battle Tuyul!")
+
+	# Menyimpan data sebelum masuk Battle Scene
+	GameManager.start_battle(
+		nearby_player,
+		enemy_id,
+		"tuyul"
+	)
+
+	# Berpindah ke Battle Scene Tuyul
+	get_tree().call_deferred(
+		"change_scene_to_file",
+		"res://Assets-Battle/Scene-Battle/tuyul_battle.tscn"
+	)

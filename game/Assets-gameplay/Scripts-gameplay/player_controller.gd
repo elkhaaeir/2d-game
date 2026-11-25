@@ -142,7 +142,7 @@ func _create_controls_hint() -> void:
 	var ui := CanvasLayer.new()
 	ui.layer = 19
 	var hint := Label.new()
-	hint.text = "A/D or Left/Right: Move   |   Space/W/Up: Jump   |   S/Down: Drop   |   Enter: Talk   |   I: Inventory   |   Esc: Pause"
+	hint.text = "A/D or Left/Right: Move   |   Space/W/Up: Jump   |   S/Down: Drop   |   Enter: Talk   |   Esc: Pause"
 	hint.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	hint.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_WIDE)
 	hint.offset_top = -32

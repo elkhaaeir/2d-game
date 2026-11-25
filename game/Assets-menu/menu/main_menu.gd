@@ -21,6 +21,7 @@ func _ready() -> void:
 	_show_main_menu()
 	_refresh_unlocks()
 	PlayerHUD.hide_hud()
+	InventoryArea.hide()
 
 func _hide_all_panels() -> void:
 	for panel in [main_menu, options, start_menu, arc_select, arc_1_chapter, arc_2_chapter, arc_3_chapter]:

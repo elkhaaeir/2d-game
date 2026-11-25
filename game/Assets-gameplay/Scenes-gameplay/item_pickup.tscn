@@ -7,7 +7,7 @@
 [sub_resource type="CircleShape2D" id="1"]
 radius = 16.0
 
-[node name="ItemPickup" type="Area2D" unique_id=312040845]
+[node name="OxygenPickup" type="Area2D" unique_id=312040845]
 collision_layer = 0
 script = ExtResource("1")
 

@@ -1,63 +1,46 @@
 
 extends CanvasLayer
 
-@onready var inventory_panel = $CenterContainer
-@onready var medkit_button = $CenterContainer/PanelContainer/VBoxContainer/MedkitButton
-@onready var oxygen_button = $CenterContainer/PanelContainer/VBoxContainer/OxygenButton
-@onready var close_button = $CenterContainer/PanelContainer/VBoxContainer/CloseButton
+@onready var medkit_count = $PanelContainer/HBoxContainer/MedkitSlot/MedkitCount
+@onready var oxygen_count = $PanelContainer/HBoxContainer/OxygenSlot/OxygenCount
+@onready var weapon_count = $PanelContainer/HBoxContainer/WeaponSlot/WeaponCount
 
 
 func _ready():
-
-	hide()
-
-	medkit_button.pressed.connect(_on_medkit_pressed)
-	oxygen_button.pressed.connect(_on_oxygen_pressed)
-	close_button.pressed.connect(_on_close_pressed)
-
-	update_inventory()
-
-
-# MEMBUKA INVENTORY
-func open_inventory():
-
-	update_inventory()
 	show()
+	update_inventory()
 
 
-# MENUTUP INVENTORY
-func close_inventory():
+# ==================================
+# MEMPERBARUI INVENTORY
+# ==================================
 
-	hide()
-
-
-# MEMPERBARUI JUMLAH ITEM
 func update_inventory():
-
-	# Memperbarui jumlah item
-	medkit_button.text = "Medkit x%d/%d" % [GameManager.medkit_count, GameManager.medkit_capacity]
-	oxygen_button.text = "Oxygen x%d/%d" % [GameManager.oxygen_count, GameManager.oxygen_capacity]
-
-	# Memperbarui deskripsi
-	$CenterContainer/PanelContainer/VBoxContainer/MedkitDescription.text = "Memulihkan 30 HP."
-	$CenterContainer/PanelContainer/VBoxContainer/OxygenDescription.text = "Mengisi Oxygen hingga 03:00."
-
-	# Mengatur tombol Medkit
-	medkit_button.disabled = (
-		GameManager.medkit_count <= 0
-		or GameManager.player_hp >= GameManager.player_max_hp
-	)
-
-	# Mengatur tombol Oxygen
-	oxygen_button.disabled = (
-		GameManager.oxygen_count <= 0
-		or GameManager.oxygen >= GameManager.oxygen_max
-	)
+	medkit_count.text = "x%d" % GameManager.medkit_count
+	oxygen_count.text = "x%d" % GameManager.oxygen_count
+	weapon_count.text = "x%d" % GameManager.senjata_count
 
 
+# ==================================
+# MENGGUNAKAN ITEM
+# ==================================
+
+func _process(_delta):
+	if Input.is_action_just_pressed("use_medkit"):
+		use_medkit()
+
+	if Input.is_action_just_pressed("use_oxygen"):
+		use_oxygen()
+
+	if Input.is_action_just_pressed("use_weapon"):
+		use_weapon()
+
+
+# ==================================
 # MENGGUNAKAN MEDKIT
-func _on_medkit_pressed():
+# ==================================
 
+func use_medkit():
 	if GameManager.medkit_count <= 0:
 		return
 
@@ -74,10 +57,14 @@ func _on_medkit_pressed():
 	update_inventory()
 	PlayerHUD.update_hud()
 
+	print("Medkit digunakan!")
 
+
+# ==================================
 # MENGGUNAKAN OXYGEN
-func _on_oxygen_pressed():
+# ==================================
 
+func use_oxygen():
 	if GameManager.oxygen_count <= 0:
 		return
 
@@ -90,8 +77,24 @@ func _on_oxygen_pressed():
 	update_inventory()
 	PlayerHUD.update_hud()
 
+	print("Oxygen digunakan!")
 
-# TOMBOL CLOSE
-func _on_close_pressed():
 
-	close_inventory()
+# ==================================
+# MENGGUNAKAN SENJATA
+# ==================================
+
+func use_weapon():
+	if GameManager.senjata_count <= 0:
+		return
+
+	if GameManager.senjata_turns_left > 0:
+		return
+
+	GameManager.senjata_count -= 1
+	GameManager.senjata_turns_left = GameManager.senjata_duration
+
+	update_inventory()
+	PlayerHUD.update_hud()
+
+	print("Senjata diaktifkan!")

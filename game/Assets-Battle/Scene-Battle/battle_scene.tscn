@@ -1,7 +1,18 @@
 [gd_scene format=3 uid="uid://cytlb4n340jnf"]
 
 [ext_resource type="Script" uid="uid://b02sgjnuyob0u" path="res://Assets-Battle/Scripts-Battle/battle_scene.gd" id="1_u6v5k"]
-[ext_resource type="Texture2D" uid="uid://r82iue4d0u52" path="res://Assets-Battle/Sprites-battle/enemy_idle.png" id="2_8k3np"]
+[ext_resource type="Texture2D" uid="uid://b5bh08wk5su1x" path="res://Assets-Battle/Sprites-battle/bg battle 1.png" id="2_8k3np"]
+[ext_resource type="Texture2D" uid="uid://bqnult6audc5o" path="res://Assets-Battle/Sprites-battle/Prbwo.png" id="3_vv2v1"]
+[ext_resource type="Texture2D" uid="uid://0qgvfbejim0u" path="res://Assets-Battle/Sprites-battle/icon_attack.png" id="4_1wgty"]
+[ext_resource type="Texture2D" uid="uid://dntd3h1vujgd7" path="res://Assets-Battle/Sprites-battle/icon_defend.png" id="5_p5mnn"]
+[ext_resource type="Texture2D" uid="uid://ds6yb3787d7mg" path="res://Assets-Battle/Sprites-battle/icon_inventory.png" id="6_omwep"]
+[ext_resource type="Texture2D" uid="uid://c73r5bsns5le" path="res://Assets-Battle/Sprites-battle/icon_run.png" id="7_prv13"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o8mfr"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lxp76"]
+bg_color = Color(0.47058824, 0.023529412, 0.023529412, 1)
 
 [node name="BattleScene" type="Control" unique_id=1515368923]
 layout_mode = 3
@@ -12,17 +23,55 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_u6v5k")
 
-[node name="Background" type="ColorRect" parent="." unique_id=1823613804]
+[node name="Background" type="TextureRect" parent="." unique_id=1351880377]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 1)
+texture = ExtResource("2_8k3np")
+
+[node name="BattleUIBackground" type="ColorRect" parent="." unique_id=1191916783]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.65
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 61.80002
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0, 0, 0, 0.5882353)
+
+[node name="BattleUIBackground2" type="ColorRect" parent="." unique_id=1809311735]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.65
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -420.19998
+offset_right = -678.0
+offset_bottom = -562.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0, 0, 0, 0.5882353)
+
+[node name="BattleUIBackground3" type="ColorRect" parent="." unique_id=1143332606]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.65
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 674.0
+offset_top = -420.19998
+offset_right = -4.0
+offset_bottom = -562.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0, 0, 0, 0.5882353)
 
 [node name="Enemy" type="TextureRect" parent="." unique_id=1582633924]
-custom_minimum_size = Vector2(256, 256)
+custom_minimum_size = Vector2(1080, 1080)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -35,7 +84,7 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_8k3np")
+texture = ExtResource("3_vv2v1")
 expand_mode = 1
 stretch_mode = 5
 metadata/_edit_use_anchors_ = true
@@ -51,6 +100,7 @@ text = "Player"
 
 [node name="PlayerHP" type="ProgressBar" parent="PlayerStatus" unique_id=270439147]
 layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_o8mfr")
 value = 100.0
 
 [node name="WeaponStatus" type="Label" parent="PlayerStatus" unique_id=1383910920]
@@ -69,12 +119,13 @@ grow_horizontal = 0
 
 [node name="EnemyName" type="Label" parent="EnemyStatus" unique_id=448653522]
 layout_mode = 2
-text = "Monster Ungu"
+text = "Monster Sawit"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="EnemyHP" type="ProgressBar" parent="EnemyStatus" unique_id=937826233]
 layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_lxp76")
 value = 100.0
 
 [node name="BattleUI" type="VBoxContainer" parent="." unique_id=926708285]
@@ -105,21 +156,26 @@ columns = 2
 custom_minimum_size = Vector2(160, 45)
 layout_mode = 2
 text = "ATTACK"
+icon = ExtResource("4_1wgty")
 
 [node name="DefendButton" type="Button" parent="BattleUI/CenterContainer/ActionMenu" unique_id=137342819]
 custom_minimum_size = Vector2(160, 45)
 layout_mode = 2
 text = "DEFEND"
+icon = ExtResource("5_p5mnn")
 
 [node name="ItemButton" type="Button" parent="BattleUI/CenterContainer/ActionMenu" unique_id=1890671524]
 custom_minimum_size = Vector2(160, 45)
 layout_mode = 2
 text = "ITEM"
+icon = ExtResource("6_omwep")
 
 [node name="RunButton" type="Button" parent="BattleUI/CenterContainer/ActionMenu" unique_id=351512966]
 custom_minimum_size = Vector2(160, 45)
 layout_mode = 2
 text = "RUN"
+icon = ExtResource("7_prv13")
+flat = true
 
 [node name="InventoryPanel" type="Panel" parent="." unique_id=342232142]
 custom_minimum_size = Vector2(400, 300)

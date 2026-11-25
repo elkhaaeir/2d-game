@@ -1,48 +1,73 @@
 [gd_scene format=3 uid="uid://by8wrdoetb1sb"]
 
 [ext_resource type="Script" uid="uid://4e2tcunu1ajs" path="res://Assets-gameplay/Scripts-gameplay/inventory_area.gd" id="1_6uvrh"]
-[ext_resource type="Texture2D" uid="uid://cixebe32g86fw" path="res://Assets-gameplay/Sprites-gameplay/heart_32x32.png" id="2_lly7e"]
-[ext_resource type="Texture2D" uid="uid://cuq2f7mtqjqrm" path="res://Assets-gameplay/Sprites-gameplay/icon_oxygen.png" id="3_u2wbv"]
 
 [node name="InventoryArea" type="CanvasLayer" unique_id=1065155507]
 script = ExtResource("1_6uvrh")
 
-[node name="CenterContainer" type="CenterContainer" parent="." unique_id=438011778]
-anchors_preset = 15
-anchor_right = 1.0
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=401259989]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
 anchor_bottom = 1.0
+offset_left = -270.0
+offset_top = -105.0
+offset_right = 270.0
+offset_bottom = -35.0
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
 
-[node name="PanelContainer" type="PanelContainer" parent="CenterContainer" unique_id=401259989]
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer" unique_id=1981318897]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer" unique_id=1513487902]
+[node name="MedkitSlot" type="VBoxContainer" parent="PanelContainer/HBoxContainer" unique_id=1513487902]
 layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
 
-[node name="Title" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=326020378]
+[node name="MedkitLabel" type="Label" parent="PanelContainer/HBoxContainer/MedkitSlot" unique_id=498271337]
 layout_mode = 2
-text = "INVENTORY"
+theme_override_colors/font_color = Color(0.9098039, 0.8392157, 0.42745098, 1)
+text = "1.     MEDKIT"
+horizontal_alignment = 1
 
-[node name="MedkitButton" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=1856382270]
+[node name="MedkitCount" type="Label" parent="PanelContainer/HBoxContainer/MedkitSlot" unique_id=533498825]
 layout_mode = 2
-theme_override_constants/icon_max_width = 48
-text = "Medkit x3"
-icon = ExtResource("2_lly7e")
+theme_override_colors/font_color = Color(0.9098039, 0.8392157, 0.42745098, 1)
+text = "x3"
+horizontal_alignment = 1
 
-[node name="MedkitDescription" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=1793106939]
+[node name="OxygenSlot" type="VBoxContainer" parent="PanelContainer/HBoxContainer" unique_id=83846225]
 layout_mode = 2
-text = "Memulihkan 30 HP."
+size_flags_horizontal = 3
+alignment = 1
 
-[node name="OxygenButton" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=642581585]
+[node name="OxygenLabel" type="Label" parent="PanelContainer/HBoxContainer/OxygenSlot" unique_id=1306186418]
 layout_mode = 2
-text = "Oxygen x2"
-icon = ExtResource("3_u2wbv")
+theme_override_colors/font_color = Color(0.9098039, 0.8392157, 0.42745098, 1)
+text = "2.     OXYGEN"
+horizontal_alignment = 1
 
-[node name="OxygenDescription" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=80032160]
+[node name="OxygenCount" type="Label" parent="PanelContainer/HBoxContainer/OxygenSlot" unique_id=1584287351]
 layout_mode = 2
-text = "Mengisi Oksigen hingga 3:00."
+theme_override_colors/font_color = Color(0.9098039, 0.8392157, 0.42745098, 1)
+text = "x2"
+horizontal_alignment = 1
 
-[node name="CloseButton" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=440918243]
+[node name="WeaponSlot" type="VBoxContainer" parent="PanelContainer/HBoxContainer" unique_id=457307749]
 layout_mode = 2
-text = "CLOSE"
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="WeaponLabel" type="Label" parent="PanelContainer/HBoxContainer/WeaponSlot" unique_id=1501507093]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9098039, 0.8392157, 0.42745098, 1)
+text = "3.     SENJATA"
+horizontal_alignment = 1
+
+[node name="WeaponCount" type="Label" parent="PanelContainer/HBoxContainer/WeaponSlot" unique_id=2019009017]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9098039, 0.8392157, 0.42745098, 1)
+text = "x2"
+horizontal_alignment = 1

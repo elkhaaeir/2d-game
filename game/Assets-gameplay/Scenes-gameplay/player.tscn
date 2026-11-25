@@ -97,8 +97,8 @@ _data = {
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gwcng"]
-radius = 4.0
-height = 14.0
+radius = 7.0
+height = 22.0
 
 [sub_resource type="CircleShape2D" id="DialogueRangeShape"]
 radius = 21.0
@@ -136,6 +136,7 @@ speed_scale = 1.5
 
 [node name="Sprite2D" type="Sprite2D" parent="PlayerAnimator" unique_id=1252869444]
 position = Vector2(0, -8)
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_7dd06")
 region_enabled = true
 region_rect = Rect2(0, 16, 16, 16)

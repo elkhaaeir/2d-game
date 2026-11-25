@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dnpy4yp8nkygw" path="res://Assets-gameplay/Scenes-gameplay/player.tscn" id="5_wcib4"]
 [ext_resource type="PackedScene" uid="uid://n432huj3nnty" path="res://Assets-gameplay/Scenes-gameplay/enemy.tscn" id="8_e86y5"]
 [ext_resource type="Script" uid="uid://cvpxovuc1eygo" path="res://Assets-gameplay/Scenes-gameplay/Areas/transition_area_4.gd" id="10_f1oby"]
+[ext_resource type="PackedScene" uid="uid://4rrm064sd3gb" path="res://Assets-gameplay/Scenes-gameplay/medkit_pickup.tscn" id="11_2v8ko"]
 [ext_resource type="PackedScene" uid="uid://b8hkhct55knyl" path="res://Assets-gameplay/Scenes-gameplay/tuyul.tscn" id="11_huhun"]
 [ext_resource type="PackedScene" uid="uid://dcmjbygmnc6rl" path="res://Assets-gameplay/Scenes-gameplay/item_pickup.tscn" id="12_pickup"]
 
@@ -495,11 +496,11 @@ speed = 2.5
 jump_power = 10.0
 
 [node name="Enemy" parent="." unique_id=1975346953 instance=ExtResource("8_e86y5")]
-position = Vector2(970, 224)
-scale = Vector2(2, 2)
+position = Vector2(974.99994, 225)
+scale = Vector2(2.5, 2.5)
 
-[node name="MedkitPickupHighRisk" parent="." unique_id=922400286 instance=ExtResource("12_pickup")]
-position = Vector2(546, 134)
+[node name="MedkitPickup" parent="." unique_id=312040845 instance=ExtResource("11_2v8ko")]
+position = Vector2(531, 133)
 
 [node name="OxygenPickupBeforeEnemy" parent="." unique_id=984112393 instance=ExtResource("12_pickup")]
 position = Vector2(371, 163)
@@ -516,7 +517,7 @@ position = Vector2(1156, 201)
 shape = SubResource("CircleShape2D_gwcng")
 
 [node name="Tuyul" parent="." unique_id=517775308 instance=ExtResource("11_huhun")]
-position = Vector2(438, 225)
-scale = Vector2(0.7, 0.7)
+position = Vector2(447, 233)
+scale = Vector2(0.8, 0.8)
 
 [connection signal="body_entered" from="TransitionArea4" to="TransitionArea4" method="_on_body_entered"]

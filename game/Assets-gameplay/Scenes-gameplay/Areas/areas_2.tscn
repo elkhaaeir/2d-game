@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://bx3cyx7m2ny5n" path="res://Assets-gameplay/Scenes-gameplay/npc.tscn" id="10_6qner"]
 [ext_resource type="Resource" uid="uid://dorv1c3b32q4a" path="res://Assets-gameplay/Scripts-gameplay/dialogueCharacter/dialogue1.dialogue" id="10_j28hn"]
 [ext_resource type="PackedScene" uid="uid://dcmjbygmnc6rl" path="res://Assets-gameplay/Scenes-gameplay/item_pickup.tscn" id="12_pickup"]
+[ext_resource type="PackedScene" uid="uid://4rrm064sd3gb" path="res://Assets-gameplay/Scenes-gameplay/medkit_pickup.tscn" id="14_3j7hd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vwf77"]
 texture = ExtResource("1_6i3g1")
@@ -366,6 +367,7 @@ tile_set = SubResource("TileSet_e1n45")
 
 [node name="NPC" parent="." unique_id=1718789106 instance=ExtResource("10_6qner")]
 position = Vector2(861, 224)
+scale = Vector2(1.5, 1.5)
 
 [node name="Actionable" parent="NPC" unique_id=1270926978 instance=ExtResource("9_wyi5x")]
 dialogue_resource = ExtResource("10_j28hn")
@@ -389,11 +391,10 @@ shape = SubResource("CircleShape2D_gwcng")
 [node name="RespawnPoint" type="Marker2D" parent="." unique_id=1185043615]
 position = Vector2(105, 205)
 
-[node name="OxygenPickupMainRoute" parent="." unique_id=1142483134 instance=ExtResource("12_pickup")]
-position = Vector2(417, 212)
-item_type = "oxygen"
+[node name="MedkitPickup" parent="." unique_id=312040845 instance=ExtResource("14_3j7hd")]
+position = Vector2(627, 212)
 
-[node name="MedkitPickupRiskRoute" parent="." unique_id=691123855 instance=ExtResource("12_pickup")]
-position = Vector2(745, 213)
+[node name="OxygenPickup" parent="." unique_id=506845999 instance=ExtResource("12_pickup")]
+position = Vector2(367, 217)
 
 [connection signal="body_entered" from="TransitionArea2" to="TransitionArea2" method="_on_body_entered"]

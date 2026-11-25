@@ -3,6 +3,12 @@
 [ext_resource type="Script" uid="uid://dsggvqdocalxq" path="res://Assets-gameplay/Scripts-gameplay/player_hud.gd" id="1_wbp3m"]
 [ext_resource type="FontFile" uid="uid://cqb1hwgjj4ypu" path="res://Assets-menu/Font/Black Pixel.ttf" id="2_a52x0"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sa0m5"]
+bg_color = Color(0.54509807, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_77ct1"]
+bg_color = Color(0.17529762, 0.6158402, 0.99999994, 1)
+
 [node name="PlayerHUD" type="CanvasLayer" unique_id=2066364107]
 script = ExtResource("1_wbp3m")
 
@@ -21,6 +27,7 @@ text = "HP: 100 / 100"
 
 [node name="HPBar" type="ProgressBar" parent="MarginContainer/VBoxContainer" unique_id=1741779344]
 layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_sa0m5")
 value = 100.0
 
 [node name="OxygenLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=739758406]
@@ -29,6 +36,8 @@ theme_override_fonts/font = ExtResource("2_a52x0")
 
 [node name="OxygenBar" type="ProgressBar" parent="MarginContainer/VBoxContainer" unique_id=751613756]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.9419373, 0.95503396, 0.9257102, 1)
+theme_override_styles/background = SubResource("StyleBoxFlat_77ct1")
 max_value = 180.0
 value = 180.0
 

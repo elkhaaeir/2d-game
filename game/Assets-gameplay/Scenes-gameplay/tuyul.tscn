@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cvpkeffanpdmi" path="res://Assets-gameplay/Sprites-gameplay/tuyul.png" id="1_jasts"]
 [ext_resource type="Script" uid="uid://ccpn8vog0hnuf" path="res://Assets-gameplay/Scripts-gameplay/tuyul.gd" id="1_vpj5e"]
+[ext_resource type="FontFile" uid="uid://cqb1hwgjj4ypu" path="res://Assets-menu/Font/Black Pixel.ttf" id="3_4q6kt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gquvw"]
 atlas = ExtResource("1_jasts")
@@ -30,15 +31,19 @@ radius = 5.0
 height = 14.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jobgd"]
-radius = 24.083189
+radius = 18.110771
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xrivr"]
+radius = 34.0147
 
 [node name="Tuyul" type="CharacterBody2D" unique_id=517775308]
-collision_layer = 5
-collision_mask = 769
+collision_layer = 4
+collision_mask = 768
 script = ExtResource("1_vpj5e")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=582581474]
 position = Vector2(0, -8)
+scale = Vector2(1.4, 1.4)
 sprite_frames = SubResource("SpriteFrames_13qdw")
 animation = &"run"
 frame_progress = 0.91689193
@@ -60,5 +65,21 @@ gizmo_extents = 100.0
 [node name="PatrolRight" type="Marker2D" parent="." unique_id=1835726052]
 position = Vector2(100, -7)
 gizmo_extents = 100.0
+
+[node name="InteractionArea" type="Area2D" parent="." unique_id=1874737407]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=364619746]
+position = Vector2(0, -7)
+shape = SubResource("CircleShape2D_xrivr")
+
+[node name="InteractionPrompt" type="Label" parent="." unique_id=275221373]
+offset_left = -30.0
+offset_top = -34.0
+offset_right = 33.0
+offset_bottom = -22.0
+theme_override_colors/font_color = Color(1, 0.9, 0.45, 1)
+theme_override_fonts/font = ExtResource("3_4q6kt")
+theme_override_font_sizes/font_size = 8
+text = "[ENTER] Bertarung"
 
 [connection signal="body_entered" from="DamageArea" to="." method="_on_damage_area_body_entered"]
